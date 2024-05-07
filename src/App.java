@@ -35,7 +35,6 @@ public class App {
     }
     public static void main(String[] args) throws Exception {
         int[] a = {5, 2, 4, 45, 2, 45, 2, 3};
-        System.out.println(sort(a));
         System.out.println(binarySearch(a, 2));
     }
 }
