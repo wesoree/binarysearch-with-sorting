@@ -1,29 +1,25 @@
 import java.util.Arrays;
 public class App {
-    public static int[] sort(int[] nums) {
-        int n = nums.length;
-        for (int i = 0; i < n ; i++)
-        {
-            int minIndex = i;
-            for (int j = i + 1; j < n; j++)
-            {
-                if (nums[j] < nums[minIndex])
-                    minIndex = j;
+    
+    public static void bubbleSort(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i; j < nums.length; j++) {
+                if (nums[i] > nums[j]) {
+                    int temp = nums[i]
+                    nums[i] = nums[j]
+                    nums[j] = temp;
+                }
             }
-            int temp = nums[i];
-            nums[i] = nums[minIndex];
-            nums[minIndex] = temp;
         }
-        return nums;
+        System.out.println(nums);
     }
 
     public static int binarySearch(int[] nums, int key) {
-        nums = sort(nums);
         int min = 0;
         int max = nums.length - 1;
         while (min <= max)
         {
-            int mid = (min + max) >> 1;
+            int mid = min + ((max - min) / 2);
             if (key == nums[mid])
                 return ++mid;
             else if (key < nums[mid])
@@ -34,7 +30,7 @@ public class App {
         return -1;
     }
     public static void main(String[] args) throws Exception {
-        int[] a = {5, 2, 4, 45, 2, 45, 2, 3};
-        System.out.println(binarySearch(a, 2));
-    }
+        int[] a = {5, 3, 7, 9, 3, 5};
+        bubbleSort(a);
+    } 
 }
