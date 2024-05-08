@@ -109,7 +109,7 @@ public class App {
     }
 
     public static void searchSort(int[] arr, int key) {
-        mergeSort(arr, 0, arr.length - 1);
+        bubbleSort(arr);
         System.out.println(Arrays.toString(arr));
         System.out.println("the number: " + key + ", is located on spot: " + binarySearch(arr, key));
     }
