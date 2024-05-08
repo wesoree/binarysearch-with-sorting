@@ -113,6 +113,18 @@ public class App {
         System.out.println(Arrays.toString(arr));
         System.out.println("the number: " + key + ", is located on spot: " + binarySearch(arr, key));
     }
+    
+    public static int fibonacci(int n)
+    {
+        if (n == 0)
+            return 0;
+
+        if (n == 1)
+            return 1;
+
+
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
 
     public static void main(String[] args) {
         int[] a = {5, 3, 7, 9, 3, 5, 2, 5, 3, 6, 12, 6, 3, 45, 100};
@@ -120,5 +132,6 @@ public class App {
         String str = Arrays.toString(b);
         System.out.println(str);
         searchSort(a, 5);
+        System.out.println(fibonacci(10));
     } 
 }
