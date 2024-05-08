@@ -38,6 +38,60 @@ public class App {
         return pIndex;
     }
 
+    public static int[] mergeSort(int[] arr, int lo, int hi) {
+        if (lo == hi) {
+            int[] br = new int[1];
+            br[0] = arr[lo];
+
+            return br;
+        }
+
+        int mid = (lo + hi) / 2;
+
+        int[] fh = mergeSort(arr, lo, mid);
+        int[] sh = mergeSort(arr, mid + 1, hi);
+
+        int[] merged = mergeArrays(fh, sh);
+
+        return merged;
+    }
+
+    public static int[] mergeArrays(int[] first, int[] second) {
+        int[] sorted = new int[first.length + second.length];
+
+        int i = 0;
+        int j = 0;
+        int k = 0;
+
+        while (i < first.length && j < second.length) {
+            if (first[i] < second[k]) {
+                sorted[k] = first[i];
+                k++;
+                j++;
+            } else {
+                sorted[k] = second[j];
+                k++;
+                j++;
+            }
+        }
+        
+        if (i == first.length) {
+            while (j < second.length) {
+                sorted[k] = second[j];
+                k++;
+                j++;
+            }
+        }
+        if (j == second.length) {
+            while (i < first.length) {
+                sorted[k] = first[j];
+                k++;
+                j++;
+            }
+        }
+        return sorted;
+    }
+
     public static int binarySearch(int[] nums, int key) {
         int min = 0;
         int max = nums.length - 1;
@@ -54,15 +108,13 @@ public class App {
         return -1;
     }
 
-    public static void searchSort(int[] arr, int key){
-        int start = 0;
-        int end = arr.length - 1;
-        bubbleSort(arr);
+    public static void searchSort(int[] arr, int key) {
+        mergeSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
-        System.out.println("the number is located on spot " + binarySearch(arr, key));
+        System.out.println("the number: " + key + ", is located on spot: " + binarySearch(arr, key));
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         int[] a = {5, 3, 7, 9, 3, 5, 2, 5, 3, 6, 12, 6, 3, 45, 100};
         int[] b = bubbleSort(a);
         String str = Arrays.toString(b);
