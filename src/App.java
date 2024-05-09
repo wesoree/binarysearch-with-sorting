@@ -1,10 +1,11 @@
 import java.util.Arrays;
+
 public class App {
 
     public static void selectionSort(final int[] arr) {
-        for (int i = 0; i < arr.length - 1; i++){
+        for (int i = 0; i < arr.length - 1; i++) {
             int minElementIndex = i;
-            for (int j = i + 1; j < arr.length; j++){
+            for (int j = i + 1; j < arr.length; j++) {
                 if (arr[minElementIndex] > arr[j])
                     minElementIndex = j;
             }
@@ -19,11 +20,43 @@ public class App {
         arr[j] = temp;
     }
 
+    public static void sort(int[] arr) {
+        if (arr.length < 2)
+            return; // no need to sort
+        int mid = arr.length / 2;
+        int left[] = new int[mid];
+        int right[] = new int[arr.length - mid];
+        for (int i = 0; i < mid; i++)
+            left[i] = arr[i];
+        for (int i = 0; i < arr.length - mid; i++)
+            right[i] = arr[mid + i];
+        sort(left);
+        sort(right);
+        merge(left, right, arr);
+    }
+
+    private static void merge(int[] a, int[] b, int[] all) {
+        int i = 0, j = 0, k = 0;
+        while ((i < a.length) && (j < b.length)) {
+            if (a[i] < b[j]) {
+                all[k] = a[i];
+                i++;
+            } else {
+                all[k] = b[j];
+                j++;
+            }
+            k++;
+        }
+        while (i < a.length)
+            all[k++] = a[i++];
+        while (j < b.length)
+            all[k++] = b[j++];
+    }
+
     public static int binarySearch(int[] nums, int key) {
         int min = 0;
         int max = nums.length - 1;
-        while (min <= max)
-        {
+        while (min <= max) {
             int mid = min + ((max - min) / 2);
             if (key == nums[mid])
                 return ++mid;
@@ -36,27 +69,47 @@ public class App {
     }
 
     public static void search(int[] arr, int key) {
-        System.out.println("the array is:");
-        selectionSort(arr);
+        if (arr.length == 1) {
+            System.out.println("array " + Arrays.toString(arr) + " is too short");
+            return;
+        }
+        System.out.println("the unsorted array is:");
         System.out.println(Arrays.toString(arr));
-        System.out.println("the number: " + key + ", is located on spot: " + binarySearch(arr, key));
+        System.out.println("the sorted array is:");
+        if (arr.length <= 10)
+            selectionSort(arr);
+        else
+            sort(arr);
+        System.out.println(Arrays.toString(arr));
+        int a = binarySearch(arr, key);
+        if (a == -1)
+            System.out.println("there are no instances of " + key);
+        else
+            System.out.println("the first instance of " + key + " is located on spot " + a);
     }
 
-    public static int fibonacci(int n)
-    {
+    public static int fibonacci(int n) {
         if (n == 0)
             return 0;
 
         if (n == 1)
             return 1;
 
-
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
     public static void main(String[] args) {
-        int[] a = {5, 3, 7, 9, 3, 5, 2, 5, 3, 6, 12, 6, 3, 45, 100};
+        int[] a = { 5, 3, 7, 9, 3, 5, 2, 5, 3, 6, 12, 6, 3, 45, 100 };
+        int[] b = { 3, 5, 2, 4, 3 };
+        int[] c = { 5, 2, 6, 2, 6, 1, 6, 2, 100, 30, -1, 4, -30, 20, 25, 104, 300, 2 };
+        int[] d = { 1, 3, 3, 2 };
+        int[] e = { 1 };
         search(a, 5);
-        //System.out.println(fibonacci(10));
-    } 
+        search(b, 3);
+        search(a, 1);
+        search(c, 100);
+        search(d, 4);
+        search(e, 1);
+        // System.out.println(fibonacci(10));
+    }
 }
