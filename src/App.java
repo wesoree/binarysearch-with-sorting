@@ -53,14 +53,14 @@ public class App {
             all[k++] = b[j++];
     }
 
-    public static int binarySearch(int[] nums, int key) {
+    public static int binarySearch(int[] arr, int key) {
         int min = 0;
-        int max = nums.length - 1;
+        int max = arr.length - 1;
         while (min <= max) {
             int mid = min + ((max - min) / 2);
-            if (key == nums[mid])
+            if (key == arr[mid])
                 return ++mid;
-            else if (key < nums[mid])
+            else if (key < arr[mid])
                 max = mid - 1;
             else
                 min = mid + 1;
@@ -70,8 +70,14 @@ public class App {
 
     public static void search(int[] arr, int key) {
         if (arr.length == 1) {
-            System.out.println("array " + Arrays.toString(arr) + " is too short");
-            return;
+            if (arr[0] == key) {
+                System.out.println("there is an instance of " + key + " in " + Arrays.toString(arr));
+                return;
+            }
+            else{
+                System.out.println("there are no instances of "+key);
+                return;
+            }
         }
         System.out.println("the unsorted array is:");
         System.out.println(Arrays.toString(arr));
@@ -85,7 +91,7 @@ public class App {
         if (a == -1)
             System.out.println("there are no instances of " + key);
         else
-            System.out.println("the first instance of " + key + " is located on spot " + a);
+            System.out.println("the last instance of " + key + " is located on spot " + a);
     }
 
     public static int fibonacci(int n) {
@@ -104,12 +110,14 @@ public class App {
         int[] c = { 5, 2, 6, 2, 6, 1, 6, 2, 100, 30, -1, 4, -30, 20, 25, 104, 300, 2 };
         int[] d = { 1, 3, 3, 2 };
         int[] e = { 1 };
+        int[] f = { 20 };
         search(a, 5);
         search(b, 3);
         search(a, 1);
         search(c, 100);
         search(d, 4);
         search(e, 1);
+        search(f, 1);
         // System.out.println(fibonacci(10));
     }
 }
