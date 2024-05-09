@@ -35,7 +35,7 @@ public class App {
         return -1;
     }
 
-    public static void searchSort(int[] arr, int key) {
+    public static void search(int[] arr, int key) {
         System.out.println("the array is:");
         selectionSort(arr);
         System.out.println(Arrays.toString(arr));
@@ -56,7 +56,7 @@ public class App {
 
     public static void main(String[] args) {
         int[] a = {5, 3, 7, 9, 3, 5, 2, 5, 3, 6, 12, 6, 3, 45, 100};
-        searchSort(a, 5);
+        search(a, 5);
         //System.out.println(fibonacci(10));
     } 
 }
