@@ -1,15 +1,16 @@
 import java.util.Arrays;
 public class App {
-    
-    public static int[] bubbleSort(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = i; j < arr.length; j++) {
-                if (arr[i] > arr[j]) {
-                    swap(arr, i, j);
-                }
+
+    public static void selectionSort(final int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++){
+            int minElementIndex = i;
+            for (int j = i + 1; j < arr.length; j++){
+                if (arr[minElementIndex] > arr[j])
+                    minElementIndex = j;
             }
+            if (minElementIndex != i)
+                swap(arr, i, minElementIndex);
         }
-        return arr;
     }
 
     static void swap(int arr[], int i, int j) {
@@ -35,11 +36,12 @@ public class App {
     }
 
     public static void searchSort(int[] arr, int key) {
-        bubbleSort(arr);
+        System.out.println("the array is:");
+        selectionSort(arr);
         System.out.println(Arrays.toString(arr));
         System.out.println("the number: " + key + ", is located on spot: " + binarySearch(arr, key));
     }
-    
+
     public static int fibonacci(int n)
     {
         if (n == 0)
@@ -54,10 +56,7 @@ public class App {
 
     public static void main(String[] args) {
         int[] a = {5, 3, 7, 9, 3, 5, 2, 5, 3, 6, 12, 6, 3, 45, 100};
-        int[] b = bubbleSort(a);
-        String str = Arrays.toString(b);
-        System.out.println(str);
         searchSort(a, 5);
-        System.out.println(fibonacci(10));
+        //System.out.println(fibonacci(10));
     } 
 }
