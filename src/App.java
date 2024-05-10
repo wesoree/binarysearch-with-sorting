@@ -72,7 +72,7 @@ public class App {
         if (arr.length == 1) {
             System.out.println("the array is" + Arrays.toString(arr));
             if (arr[0] == key) {
-                System.out.println(key + " located at index 0");
+                System.out.println(key + " found at index 0");
                 return;
             }
             else{
@@ -92,7 +92,7 @@ public class App {
         if (a == -1)
             System.out.println(key +" was not found");
         else
-            System.out.println(key + " located at index " + a);
+            System.out.println(key + " found at index " + a);
     }
 
     public static int fibonacci(int n) {
