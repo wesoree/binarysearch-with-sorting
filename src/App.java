@@ -59,7 +59,7 @@ public class App {
         while (min <= max) {
             int mid = min + ((max - min) / 2);
             if (key == arr[mid])
-                return ++mid;
+                return mid;
             else if (key < arr[mid])
                 max = mid - 1;
             else
@@ -70,12 +70,13 @@ public class App {
 
     public static void search(int[] arr, int key) {
         if (arr.length == 1) {
+            System.out.println("the array is" + Arrays.toString(arr));
             if (arr[0] == key) {
-                System.out.println("there is an instance of " + key + " in " + Arrays.toString(arr));
+                System.out.println(key + " located at index 0");
                 return;
             }
             else{
-                System.out.println("there are no instances of "+key);
+                System.out.println(key + " was not found");
                 return;
             }
         }
@@ -89,9 +90,9 @@ public class App {
         System.out.println(Arrays.toString(arr));
         int a = binarySearch(arr, key);
         if (a == -1)
-            System.out.println("there are no instances of " + key);
+            System.out.println(key +" was not found");
         else
-            System.out.println("the last instance of " + key + " is located on spot " + a);
+            System.out.println(key + " located at index " + a);
     }
 
     public static int fibonacci(int n) {
