@@ -65,6 +65,7 @@ public class App {
             else
                 max = mid - 1;
         }
+        return -1;
     }
 
     public static void search(int[] arr, int key) {
