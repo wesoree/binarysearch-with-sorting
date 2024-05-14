@@ -70,7 +70,7 @@ public class App {
 
     public static void search(int[] arr, int key) {
         if (arr.length == 1) {
-            System.out.println("the array is" + Arrays.toString(arr));
+            System.out.println("the array is " + Arrays.toString(arr));
             if (arr[0] == key) {
                 System.out.println(key + " found at index 0");
                 return;
