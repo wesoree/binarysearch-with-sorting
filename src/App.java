@@ -53,11 +53,11 @@ public class App {
             all[k++] = b[j++];
     }
 
-    public static int binarySearch(int[] arr, int target){
+    public static int binarySearch(int[] arr, int key){
         int min = 0;
         int max = arr.length-1;
         while (min <= max){
-            int mid = min + (min + max) / 2
+            int mid = min + (min + max) / 2;
             if (key == arr[mid])
                 return mid;
             else if (key < arr[mid])
