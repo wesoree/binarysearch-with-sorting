@@ -28,8 +28,8 @@ public class App {
         int right[] = new int[arr.length - mid];
         for (int i = 0; i < mid; i++)
             left[i] = arr[i];
-        for (int i = 0; i < arr.length - mid; i++)
-            right[i] = arr[mid + i];
+        for (int j = 0; j < arr.length - mid; j++)
+            right[j] = arr[mid + j];
         sort(left);
         sort(right);
         merge(left, right, arr);
@@ -51,7 +51,7 @@ public class App {
             all[k++] = a[i++];
         while (j < b.length)
             all[k++] = b[j++];
-    }
+    } 
 
     public static int binarySearch(int[] arr, int key) {
         int min = 0;
