@@ -44,8 +44,7 @@ public class App {
             } else {
                 all[k] = b[j];
                 j++;
-            }
-            k++;
+            }k++;
         }
         while (i < a.length)
             all[k++] = a[i++];
