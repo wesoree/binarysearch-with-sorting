@@ -50,7 +50,7 @@ public class App {
         while (i < a.length)
             all[k++] = a[i++];
         while (j < b.length)
-            all[k++] = b[j++];
+            all[k++] = b[j++]; 
     } 
 
     public static int binarySearch(int[] arr, int key) {
