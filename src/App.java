@@ -73,12 +73,12 @@ public class App {
             System.out.println("the array is" + Arrays.toString(arr));
             if (arr[0] == key) {
                 System.out.println(key + " found at index 0");
-                return;
             }
             else{
                 System.out.println(key + " was not found");
-                return;
             }
+            System.out.println("------------------------------------");
+            return;
         }
         System.out.println("the unsorted array is:");
         System.out.println(Arrays.toString(arr));
@@ -93,6 +93,8 @@ public class App {
             System.out.println(key +" was not found");
         else
             System.out.println(key + " found at index " + a);
+
+        System.out.println("------------------------------------");
     }
 
     public static int fibonacci(int n) {
