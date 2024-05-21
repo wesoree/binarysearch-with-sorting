@@ -20,7 +20,7 @@ public class App {
         arr[j] = temp;
     }
 
-    public static void sort(int[] arr) {
+    public static void split(int[] arr) {
         if (arr.length < 2)
             return; // no need to sort
         int mid = arr.length / 2;
@@ -30,8 +30,8 @@ public class App {
             left[i] = arr[i];
         for (int j = 0; j < arr.length - mid; j++)
             right[j] = arr[mid + j];
-        sort(left);
-        sort(right);
+        split(left);
+        split(right);
         merge(left, right, arr);
     }
 
@@ -82,10 +82,7 @@ public class App {
         System.out.println("the unsorted array is:");
         System.out.println(Arrays.toString(arr));
         System.out.println("the sorted array is:");
-        if (arr.length <= 10)
-            selectionSort(arr);
-        else
-            sort(arr);
+        split(arr);
         System.out.println(Arrays.toString(arr));
         int a = binarySearch(arr, key);
         if (a == -1)
