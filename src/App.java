@@ -54,9 +54,9 @@ public class App {
 
     public static void quickSort(int[] arr, int i, int j){
 
-        if (j <= 0) return;
+        if (j <= i) return;
 
-        int pivot = partition(arr, 0, j);
+        int pivot = partition(arr, i, j);
         quickSort(arr, i, j - 1);
         quickSort(arr, pivot+1, j);
     }
