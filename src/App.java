@@ -52,6 +52,31 @@ public class App {
             all[k++] = b[j++]; 
     } 
 
+    public static void quickSort(int[] arr, int i, int j){
+
+        if (j <= 0) return;
+
+        int pivot = partition(arr, 0, j);
+        quickSort(arr, i, j - 1);
+        quickSort(arr, pivot+1, j);
+    }
+
+    private static int partition(int[] arr, int i, int j){
+        int pivot = arr[j];
+        int k = i-1;
+
+        for (int l=i; l<=j-1; l++){
+            if (arr[l]<pivot){
+                k++;
+                swap(arr, k, l);
+            }
+                
+        }
+        k++;
+        swap(arr, k, j);
+        return i;
+    }
+
     public static int binarySearch(int[] arr, int key) {
         int min = 0;
         int max = arr.length - 1;
@@ -82,7 +107,7 @@ public class App {
         System.out.println("the unsorted array is:");
         System.out.println(Arrays.toString(arr));
         System.out.println("the sorted array is:");
-        split(arr);
+        quickSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
         int a = binarySearch(arr, key);
         if (a == -1)
