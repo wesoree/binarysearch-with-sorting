@@ -69,8 +69,7 @@ public class App {
             if (arr[l]<pivot){
                 k++;
                 swap(arr, k, l);
-            }
-                
+            }   
         }
         k++;
         swap(arr, k, j);
