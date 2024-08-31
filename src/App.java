@@ -26,8 +26,7 @@ public class App {
         int mid = arr.length / 2;
         int left[] = new int[mid];
         int right[] = new int[arr.length - mid];
-        for (int i = 0; i < mid; i++)
-            left[i] = arr[i];
+        System.arraycopy(arr, 0, left, 0, mid);
         for (int j = 0; j < arr.length - mid; j++)
             right[j] = arr[mid + j];
         split(left);
