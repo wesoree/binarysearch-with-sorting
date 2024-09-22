@@ -126,6 +126,21 @@ public class App {
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
+    public static void elapsetime(int hours, int mins, int elapsedhours, int elapsedmins){
+        int elapsedMinsConverted = elapsedhours * 60;
+        elapsedMinsConverted += elapsedmins;
+
+        int initialMinsConverted = hours * 60;
+        initialMinsConverted += mins;
+        
+        int finalIntermediateMins = initialMinsConverted + elapsedMinsConverted;
+        int finalHours = finalIntermediateMins / 60;
+        int finalMins = finalIntermediateMins % 60;
+
+        System.out.println("the final time is " + finalHours + ":" + finalMins);
+                
+    }
+
     public static void main(String[] args) {
         int[] a = { 5, 3, 7, 9, 3, 5, 2, 5, 3, 6, 12, 6, 3, 45, 100 };
         int[] b = { 3, 5, 2, 4, 3 };
@@ -141,5 +156,8 @@ public class App {
         search(e, 1);
         search(f, 1);
         // System.out.println(fibonacci(10));
+
+        System.out.println("stuff from veretta");
+        elapsetime(9,45,1,50);
     }
 }
