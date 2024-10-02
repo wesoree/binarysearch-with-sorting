@@ -137,8 +137,24 @@ public class App {
         int finalHours = finalIntermediateMins / 60;
         int finalMins = finalIntermediateMins % 60;
 
-        System.out.println("the final time is " + finalHours + ":" + finalMins);
+        if (finalMins < 10) {
+            System.out.println("the final time is " + finalHours + ":0" + finalMins);
+        }
+
+        else { // mins > 10
+            System.out.println("the final time is " + finalHours + ":" + finalMins);
+        }
                 
+    }
+
+    public static double convertKgs(double lbs){
+        double kgs = lbs * 0.54;
+        return kgs;
+    }
+
+    public static int convertFeet (int feet, int inches) {
+        inches += feet * 12;
+        return inches;
     }
 
     public static void main(String[] args) {
@@ -159,5 +175,8 @@ public class App {
 
         System.out.println("stuff from veretta");
         elapsetime(9,45,1,50);
+        System.out.println(convertKgs(9));
+        System.out.println(convertFeet(5,5));
+        elapsetime(0,-30,8,115);
     }
 }
