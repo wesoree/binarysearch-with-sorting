@@ -90,6 +90,15 @@ public class App {
         return -1;
     }
 
+    public static double avg(int[] nums){
+        double rc = 0;
+        for (int n=0; n < nums.length; n++){
+            rc += nums[n];
+        }
+        rc /= nums.length;
+        return rc;
+    }
+
     public static void search(int[] arr, int key) {
         if (arr.length == 1) {
             System.out.println("the array is" + Arrays.toString(arr));
@@ -178,5 +187,10 @@ public class App {
         System.out.println(convertKgs(9));
         System.out.println(convertFeet(5,5));
         elapsetime(0,-30,8,115);
+        int[] arr = {21,31,25,34,52,63};
+        quickSort(arr, 0, arr.length - 1);
+        System.out.println(Arrays.toString(arr));
+        double avg = avg(arr);
+        System.out.println(avg);
     }
 }
